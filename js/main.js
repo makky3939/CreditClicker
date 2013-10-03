@@ -1,6 +1,6 @@
 $(window).load(function (){
 
-var credit = 0;
+var credit = 0,cps = 0.1;
 
 var items = [
 	{
@@ -26,7 +26,7 @@ function credit_add(){
 }
 
 function drawCredit(){
-	$("#CreditDispley").html(credit);
+	$("#CreditDispley").html(parseInt(credit));
 }
 
 var event = new jQuery.Event("click");
@@ -43,9 +43,11 @@ $("#itembox").click(function(event){
 });
 
 setTimeout(function loop_credit(){
+  credit += cps;
   drawCredit();console.log("reflesh");
-  setTimeout(loop_credit,2000);
-},2000);
+  setTimeout(loop_credit,200);
+},200);
+
 
 });
 
