@@ -5,7 +5,7 @@ var credit = 0;
 var items = [
 	{
 		name:"hoge",
-		price:100,
+		price:10,
 		effect:0.1
 	},
 	{
@@ -17,9 +17,7 @@ var items = [
 
 function check_items(){
 	console.log(items);
-}
-
-check_items();
+}check_items();
 
 
 function credit_add(){
@@ -38,5 +36,18 @@ $("#credit").click(function(event){
   drawCredit();
 });
 
+$("#itembox").click(function(event){
+  //alert(event.type);
+  credit = credit - 10;
+  drawCredit();
 });
+
+setTimeout(function loop_credit(){
+  drawCredit();console.log("reflesh");
+  setTimeout(loop_credit,2000);
+},2000);
+
+});
+
+
 
